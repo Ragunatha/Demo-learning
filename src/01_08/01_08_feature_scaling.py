@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder,MinMaxScaler,StandardScaler
 from sklearn.model_selection import train_test_split
 
 # Load the dataset
@@ -41,5 +41,14 @@ y_final = data['charges']
 X_train, X_test, y_train, y_test = train_test_split(X_final, y_final, test_size=0.33, random_state=0)
 
 # TODO: Normalize the training and test sets using MinMaxScaler
-
+n_scaler = MinMaxScaler()
+X_train_normalized = n_scaler.fit_transform(X_train)#fit_transform does two things: it learns the scaling limits from the data, then scales that data. For X_train, MinMaxScaler learns each feature’s minimum and maximum and maps them to the 0–1 range
+X_test_normalized = n_scaler.transform(X_test)#transform() is used to scale the test data using the scaling limits learned from the training data. It applies the same scaling transformation to the test data based on the minimum and maximum values learned from the training data.
+print("\nNormalized training data datasets:\t",X_train_normalized)
+print("\nNormalized test data datasets:\t",X_test_normalized)
 # TODO: Standardize the training and test sets using StandardScaler
+s_scaler = StandardScaler()
+X_train_standardized = s_scaler.fit_transform(X_train)#fit_transform does two things: it learns the scaling limits from the data, then scales that data. For X_train, StandardScaler learns each feature’s mean and standard deviation and maps them to the 0–1 range
+X_test_standardized = s_scaler.transform(X_test)#transform() is used to scale the test data using the scaling limits learned from the training data. It applies the same scaling transformation to the test data based on the mean and standard deviation values learned from the training data.
+print("\nStandardized training data datasets:\t",X_train_standardized)
+print("\nStandardized test data datasets:\t",X_test_standardized)

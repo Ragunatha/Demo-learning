@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import RandomForestRegressor#using Ensemble method RandomForestRegressor from sklearn.ensemble
 
 # Load the dataset
 data = pd.read_csv("input/insurance.csv")
@@ -37,19 +37,18 @@ X_test = s_scaler.transform(X_test.astype(np.float64))
 
 # Instantiate RandomForestRegressor
 forest = RandomForestRegressor(
-    n_estimators=100,
-    criterion='squared_error',
-    random_state=1,
-    n_jobs=-1
+    n_estimators=100,#Build 100 decision trees,In which each tree is built on a random subset of the data and features. The final prediction is made by averaging the predictions of all the individual trees. This helps to reduce overfitting and improve generalization.
+    criterion='squared_error',#the loss function used to decide the best split in each tree 
+    random_state=1,#set a random state so the results are consistent and reproducible, which is important for evaluation and comparison.
+    n_jobs=-1# tells scikit-learn to use all available CPU cores.
 )
 
 # TODO: Fit the model on the training data
-# e.g.:
-# forest.fit(X_train, y_train)
+forest.fit(X_train, y_train)
 
 # TODO: Predict on both training and test datasets
-# y_train_pred = forest.predict(X_train)
-# y_test_pred = forest.predict(X_test)
+y_train_pred = forest.predict(X_train)
+y_test_pred = forest.predict(X_test)
 
 # TODO: Print the final scores (e.g., R-squared for train/test)
 print(

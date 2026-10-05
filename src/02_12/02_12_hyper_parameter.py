@@ -16,14 +16,14 @@ print(data.head(15))
 
 # Encode categorical variables
 le = LabelEncoder()
-data['sex'] = le.fit_transform(data['sex'])
-data['smoker'] = le.fit_transform(data['smoker'])
-region_df = pd.get_dummies(data['region'], drop_first=True)
+data['sex'] = le.fit_transform(data['sex'])       # e.g., Female=0, Male=1
+data['smoker'] = le.fit_transform(data['smoker']) # e.g., No=0, Yes=1
+region_df = pd.get_dummies(data['region'], drop_first=True)  # One-hot encode 'region'
 
 # Prepare the data
-X_num = data[['age', 'bmi', 'children']]
+X_num = data[['age', 'bmi', 'children']]  # Numerical features
 X_final = pd.concat([X_num, region_df, data['sex'], data['smoker']], axis=1)
-y_final = data['charges']
+y_final = data['charges']  # Target variable
 
 # Split the data into train and test sets
 X_train, X_test, y_train, y_test = train_test_split(
@@ -43,10 +43,10 @@ param_grid_svr = {
     'epsilon': [0.0001, 0.00001, 0.000001]
 }
 
-# Initialize GridSearchCV for SVR
+# TODO: Initialize GridSearchCV for SVR
 svr = GridSearchCV(SVR(), param_grid=param_grid_svr, cv=5, verbose=3)
 
-# Fit the model using GridSearchCV
+# TODO: Fit the model using GridSearchCV
 svr.fit(X_train, y_train)
 
 # Print the best parameters

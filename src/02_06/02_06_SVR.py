@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler
-from sklearn.svm import SVR
+from sklearn.svm import SVR#Importinf SVR from sklearn.svm
 
 # Load the dataset
 data = pd.read_csv("input/insurance.csv")
@@ -36,14 +36,14 @@ X_train = s_scaler.fit_transform(X_train.astype(np.float64))
 X_test = s_scaler.transform(X_test.astype(np.float64))
 
 # Instantiate SVR (just an example with linear kernel and C=300)
-svr = SVR(kernel='linear', C=300)
+svr = SVR(kernel='linear', C=300)#instantiate the SVR. This is an example with linear kernel and C equals to 300. So C is a parameter which controls the trade off between achieving a low error on the training data and minimizing model complexity to avoid over fitting
 
 # TODO: Fit the SVR model on the training data
-# svr.fit(X_train, y_train)
+svr.fit(X_train, y_train)
 
 # TODO: Predict on both training and test datasets
-# y_train_pred = svr.predict(X_train)
-# y_test_pred = svr.predict(X_test)
+y_train_predict=svr.predict(X_train)
+y_test_predict =svr.predict(X_test)
 
 # Print final scores
 print("SVR (linear kernel, C=300)")

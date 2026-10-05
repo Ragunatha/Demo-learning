@@ -1,27 +1,68 @@
-# Python: Working with Predictive Analytics
-This is the repository for the LinkedIn Learning course `Python: Working with Predictive Analytics`. The full course is available from [LinkedIn Learning][lil-course-url]
+🚀 **Turning Data into Predictions | My Machine Learning Project: Predicting Insurance Claims**
 
-![lil-thumbnail-url]
+What if we could use data to predict insurance costs and help businesses make more informed decisions?
 
-## Course Description
+As part of my Machine Learning learning journey, I worked on an **Insurance Claims Prediction** project, where I explored how different factors such as BMI, smoking status, and region can influence insurance costs.
 
-<p>Data can tell many stories: where it came from and where it’s going. Predictive analytics gives programmers a tool to tell stories about the future: to extract usable information and make accurate predictions. These predictions, in turn, allow business to make more informed, impactful decisions. Join data scientist Isil Berkun in this course to explore predictive analytics with Python. Discover how to prepare data—fill in missing values, perform feature scaling, and more—and use prebuilt Python libraries to make and evaluate prediction models. Isil describes what models to use and when, and explains the concepts in such a way that you can immediately apply them to your own work. Check out this course and learn to leverage Python libraries like pandas and NumPy and choose the right prediction models for your projects.
-</p> 
-<p>This course includes Code Challenges powered by CoderPad. Code Challenges are interactive coding exercises with real-time feedback, so you can get hands-on coding practice alongside the course content to advance your programming skills.</p>
+This project gave me an opportunity to move beyond theoretical concepts and gain hands-on experience with the complete Machine Learning workflow.
 
-## Instructor
+🔍 **📌 Project Overview**
 
-Isil Berkun
+The objective was to build predictive models using supervised learning, particularly regression techniques, to estimate insurance costs based on different input features.
 
-Data Scientist at Intel Corp.
+🛠️ **Technologies Used:**
 
-                            
+* Python
+* NumPy
+* Pandas
+* Scikit-learn
 
-Check out my other courses on [LinkedIn Learning](https://www.linkedin.com/learning/instructors/isil-berkun?u=104).
+⚙️ **Key Implementation Steps:**
 
+✅ Data preprocessing and cleaning
 
-[0]: # (Replace these placeholder URLs with actual course URLs)
+✅ Converting categorical variables into numerical representations using Label Encoding and One-Hot Encoding
 
-[lil-course-url]: https://www.linkedin.com/learning/
-[lil-thumbnail-url]: https://media.licdn.com/dms/image/v2/D4E0DAQGnpbINgk4ROw/learning-public-crop_675_1200/B4EZUki09UHMAY-/0/1740074864720?e=2147483647&v=beta&t=9b9vA2zFDZ8I5mfSvuZbDRA8gi2-XqtKYgPlAspSe2I
+✅ Splitting data into training and testing sets
 
+✅ Applying feature scaling, normalization, and standardization
+
+✅ Building and evaluating multiple regression models
+
+📊 **Machine Learning Models Explored:**
+
+• Linear Regression
+• Polynomial Regression
+• Support Vector Regression (SVR)
+• Decision Tree Regression
+• Random Forest Regression
+
+I also explored how SVR uses hyperplanes and different kernel functions to model complex relationships in data.
+
+📈 **Model Evaluation:**
+
+Used the R² Score to evaluate model performance and understand how effectively different regression algorithms predict insurance costs.
+
+💡 **One of My Biggest Learnings: Understanding Overfitting**
+
+One interesting challenge I encountered was that some models performed well on training data but showed lower performance on testing data.
+
+This helped me understand the practical impact of **overfitting** and why evaluating a model on unseen data is essential.
+
+🎯 **Key Takeaways from This Project:**
+
+🔹 Gained practical experience with the end-to-end Machine Learning pipeline.
+
+🔹 Understood the importance of preprocessing and feature engineering.
+
+🔹 Explored how different regression algorithms approach prediction problems.
+
+🔹 Learned how feature scaling and encoding impact model performance.
+
+🔹 Developed a better understanding of model evaluation, generalization, and overfitting.
+
+🔹 Realized that building a Machine Learning model is not just about fitting the data, but also about making reliable predictions on unseen data.
+
+🌱 **This project was another valuable step in strengthening my Machine Learning fundamentals and developing my ability to solve real-world problems using data.**
+
+I look forward to exploring more Machine Learning projects, experimenting with different algorithms, and continuously improving my skills.

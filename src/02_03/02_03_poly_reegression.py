@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler
-from sklearn.preprocessing import PolynomialFeatures
+from sklearn.preprocessing import PolynomialFeatures#The PolynomialFeatures library is used to generate polynomial and interaction features. In this case, we are using polynomial features to create a polynomial regression model that can capture non-linear relationships between the features and the target variable (insurance charges).
 from sklearn.linear_model import LinearRegression
 
 # Load the dataset
@@ -39,15 +39,12 @@ X_train, X_test, y_train, y_test = train_test_split(
 s_scaler = StandardScaler()
 X_train = s_scaler.fit_transform(X_train.astype(np.float64))
 X_test = s_scaler.transform(X_test.astype(np.float64))
-
 # TODO: Fit the polynomial regression model on the training data
-# Example:
-# poly_lr = LinearRegression()
-# poly_lr.fit(X_train, y_train)
-
-# TODO: Predict on both training and test datasets
-# y_train_pred = ...
-# y_test_pred = ...
+poly_lr=LinearRegression()#creating an instance of the linear regression model. Here we are creating an instance of the linear regression model which we are going to use to fit the training data.
+poly_lr.fit(X_train, y_train)#fitting the linear regression model on the training data
+#TODO: Predict on both training and test datasets
+y_train_pred=poly_lr.predict(X_train)#predicting the insurance charges on the training data. Here we are predicting the insurance charges on the training data which we are going to use to evaluate the performance of the model.
+y_test_pred=poly_lr.predict(X_test)#predicting the insurance charges on the test data. Here we are predicting the insurance charges on the test data which we are going to use to evaluate the performance of the model.
 
 # Print final coefficients, intercept, and R-squared scores
 print("Polynomial Regression (degree=2)")

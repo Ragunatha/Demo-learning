@@ -30,15 +30,14 @@ region_encoded = ohe.fit_transform(data[['region']])
 region_columns = ohe.get_feature_names_out(['region'])
 region_df = pd.DataFrame(region_encoded, columns=region_columns)
 
-# Combine numerical and encoded columns
-X_num = data[['age', 'bmi', 'children']].copy()
-X_final = pd.concat([X_num, region_df, data['sex'], data['smoker']], axis=1)
-
-# Assign response variable
-y_final = data[['charges']].copy()
-
-# Split the data into train and test sets
-X_train, X_test, y_train, y_test = train_test_split(X_final, y_final, test_size=0.33, random_state=0)
+#Combine numerical columns (age, bmi, children) with encoded columns (region, sex, smoker)
+X_num=data[['age', 'bmi', 'children']].copy()#creating a copy of the numerical columns to avoid modifying the original dataframe.
+X_final=pd.concat([region_df, data[['sex', 'smoker']]], axis=1)
+X=pd.concat([X_num, X_final], axis=1)
+#Assign response variable ('charges') to y_final
+y_final=data['charges'].copy()#creating a copy of the response variable to avoid modifying the original dataframe.
+#Split the data into train and test sets using train_test_split
+X_train,X_test,y_train,y_test=train_test_split(X, y_final, test_size=0.33,random_state=0)
 
 # Display shapes of the resulting datasets
 print("\nShapes of train/test datasets:")
